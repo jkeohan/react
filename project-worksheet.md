@@ -2,7 +2,7 @@
 
 ## Project Links
 
-- [add your github repo link]()
+- https://github.com/adgreenie/react.git
 - [add your deployment link]()
 
 ## Project Description
