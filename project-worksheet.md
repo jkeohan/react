@@ -70,7 +70,7 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | Gameboard | Renders the trivia game, contains score as state |
 | Question | Renders current question via API call and Answer components |
 | Answer | Renders a possible answer, using props from Question |
-| Score | Renders player's score |
+| Score | Renders player's score received through props |
 | HighScore | Form that renders at end of game, if the player achieves a high score |
 | Options | Renders a form of selectable game options |
 | Instructions | Renders rules and info about the game |
