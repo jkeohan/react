@@ -69,7 +69,7 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | Main | Contains Switch/Routes for content |
 | Gameboard | Renders the trivia game |
 | Question | Renders current question via API call |
-| Answer | Renders a possible answer with props from Question |
+| Answer | Renders a possible answer, using props from Question |
 | Score | Renders player's score |
 | HighScore | Form the renders at end of game, if the player achieves a high score |
 | Options | Renders a form of selectable game options |
