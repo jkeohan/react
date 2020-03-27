@@ -34,7 +34,7 @@ https://opentdb.com/api.php?amount=10
 
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe. Also, define the the React components and the architectural design of your app.
 
-- [wireframes](https://sitemap.mockflow.com/view/green-proj2-wireframe)
+- [wireframes](https://wireframepro.mockflow.com/view/green-proj2-wireframe)
 - [react architecture](https://sitemap.mockflow.com/view/green-proj2-architecture)
 
 
