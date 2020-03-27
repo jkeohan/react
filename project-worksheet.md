@@ -68,7 +68,7 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | Footer | Renders the footer |
 | Main | Contains Switch/Routes for content |
 | Gameboard | Renders the trivia game |
-| Question | Renders current question via API call |
+| Question | Renders current question via API call and Answer components |
 | Answer | Renders a possible answer, using props from Question |
 | Score | Renders player's score |
 | HighScore | Form the renders at end of game, if the player achieves a high score |
