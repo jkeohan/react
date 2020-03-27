@@ -66,8 +66,9 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | App | Makes the initial data pull and include React Router | 
 | Header | Renders the header and include the nav | 
 | Footer | Renders the footer |
-| Main | Contains <Switch>/<Route>s for content |
-| Game | Renders the trivia game |
+| Main | Contains Switch/Routes for content |
+| Gameboard | Renders the trivia game |
+| Score | Displays player's score |
 | Options | Renders a form of selectable game options |
 | Instructions | Renders rules and info about the game |
 | Leaderboard | Renders list of top scorers |
