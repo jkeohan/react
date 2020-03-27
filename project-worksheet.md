@@ -68,7 +68,10 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | Footer | Renders the footer |
 | Main | Contains Switch/Routes for content |
 | Gameboard | Renders the trivia game |
-| Score | Displays player's score |
+| Question | Renders current question |
+| Answer | Renders a possible answer |
+| Score | Renders player's score |
+| HighScore | Form the renders at end of game, if the player achieves a high score |
 | Options | Renders a form of selectable game options |
 | Instructions | Renders rules and info about the game |
 | Leaderboard | Renders list of top scorers |
