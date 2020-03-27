@@ -63,18 +63,18 @@ Based on the initial logic defined in the previous sections try and breakdown th
 
 | Component | Description | 
 | --- | :---: |  
-| App | Makes the initial data pull and include React Router | 
-| Header | Renders the header and include the nav | 
+| App | Sets up app with React Router | 
+| Header | Renders the header, including the nav | 
 | Footer | Renders the footer |
 | Main | Contains Switch/Routes for content |
 | Gameboard | Renders the trivia game |
-| Question | Renders current question |
-| Answer | Renders a possible answer |
+| Question | Renders current question via API call |
+| Answer | Renders a possible answer with props from Question |
 | Score | Renders player's score |
 | HighScore | Form the renders at end of game, if the player achieves a high score |
 | Options | Renders a form of selectable game options |
 | Instructions | Renders rules and info about the game |
-| Leaderboard | Renders list of top scorers |
+| Leaderboard | Renders list of top scorers via API call |
 
 Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Also, put a gif at the top of your Readme before you pitch, and you'll get a panda prize.
 
