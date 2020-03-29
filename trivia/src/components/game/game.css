@@ -1,0 +1,46 @@
+h3 {
+    margin: 0 0 5px;
+}
+
+.answer-list {
+    width: 300px;
+    margin: 0 auto;
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+.answer {
+    font-size: 18px;
+    border: 5px solid #EFF0F1;
+    border-radius: 15px;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 10px 10px 5px #EFF0F1;
+    transition: 0.3s;
+}
+
+.answer:hover {
+    background-color: grey;
+    color: white;
+    border-color: grey;
+}
+
+.gameboard {
+    text-align: center;
+}
+
+.question {
+    font-size: 20px;
+}
+
+.info-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.question-info {
+    width: 40vw;
+    margin: 0 auto;
+    text-transform: capitalize;
+}
+

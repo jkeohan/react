@@ -54,10 +54,10 @@ function Gameboard () {
         return <></>
     }
 
-    const qDisplay = ( <>
+    /*const qDisplay = ( <>
             <h2>Question {qNum}</h2>
-            <Question data={questionArr[qNum - 1]} />
-        </> )
+            <Question qData={questionArr[qNum - 1]} nextQuestion={nextQuestion} />
+        </> )*/
 
     const endDisplay = ( <>
             <h2>Thanks for playing!</h2>
@@ -69,8 +69,10 @@ function Gameboard () {
     
     return (
         <div className="gameboard">
-            <h1>Game</h1>
-            {!gameOver ? {qDisplay} : (isHighScore ? <HighScore /> : {endDisplay})}
+            {/*!gameOver ? {qDisplay} : (isHighScore ? <HighScore /> : {endDisplay})*/}
+            <h2>Question {qNum}</h2>
+            <hr/>
+            <Question qData={questionArr[qNum - 1]} nextQuestion={nextQuestion} />
         </div>
     )
 }

@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -8,19 +12,29 @@ nav > a {
     color: white;
     text-decoration: none;
     padding: 10px 20px;
+    transition: 0.3s;
+}
+
+nav > a:hover {
+    color: #69c07e;
 }
 
 main {
-    height: 75vh;
+    padding: 0 20px 20px;
+    background-color: white;
+    flex: 1 0 auto;
 }
 
 footer {
+    flex-shrink: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-family: 'Noto Sans', sans-serif;
-    color: #3f3f3f;
-    background-color: #69c07e;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: white;
+    background-color: black;
+    padding-bottom: 15px;
 }
 
 .title {
@@ -28,8 +42,35 @@ footer {
 }
 
 .logo {
-    height: 75px;
-    width: 75px;
-    border: 10px inset #69c07e;
+    height: 35px;
+    width: 35px;
+    border: 6px inset #69c07e;
     border-radius: 50%;
+    margin: 5px 5px;
+}
+
+#root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#footer-company {
+    display: flex;
+    align-items: center;
+    margin: 0 10px -15px;
+}
+
+#footer-quote {
+    margin: 15px 10px 0;
+}
+
+/* tablet */
+@media (min-width: 768px) {
+    
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+
 }
