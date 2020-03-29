@@ -1,0 +1,35 @@
+nav {
+    display: flex;
+    align-items: center;
+    background-color: black;
+}
+
+nav > a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+main {
+    height: 75vh;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Noto Sans', sans-serif;
+    color: #3f3f3f;
+    background-color: #69c07e;
+}
+
+.title {
+    font-size: 2em;
+}
+
+.logo {
+    height: 75px;
+    width: 75px;
+    border: 10px inset #69c07e;
+    border-radius: 50%;
+}
