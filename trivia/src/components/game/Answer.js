@@ -13,10 +13,15 @@ function Answer(props) {
         setMark('')
     }, [props])
 
+    useEffect(() => {
+        if (game.isAnswered && props.isCorrect) {
+            setBgColor('#69c07e')
+        }
+    }, [game.isAnswered])
+
     const handleClick = () => {
-        if(!game.isAnswered) {
+        if (!game.isAnswered) {
             if (props.isCorrect) {
-                setBgColor('#69c07e')
                 setMark('&#10004;')
             } else {
                 setBgColor('#DD3030')
