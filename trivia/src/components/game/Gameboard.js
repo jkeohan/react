@@ -1,20 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, createContext } from 'react'
 import { Link } from 'react-router-dom'
 import Question from './Question'
 import HighScore from './HighScore'
 import Leaderboard from '../Leaderboard'
 import './game.css'
 
-function Gameboard () {
+export const DataContext = createContext()
+
+function Gameboard() {
     const [questionArr, setQuestionArr] = useState(false)
     const [qNum, setQNum] = useState(1)
+    const [isAnswered, setIsAnswered] = useState(false)
     const [gameOver, setGameOver] = useState(false)
     const [score, setScore] = useState(0)
     const [isHighScore, setIsHighScore] = useState(false)
     const [nextVis, setNextVis] = useState('hidden')
     const [nextOpacity, setNextOpacity] = useState(0)
 
+    console.log('Gameboard - isAnswered', isAnswered)
+
     const calcScore = isCorrect => {
+        setIsAnswered(true)
+
         let change = 0
         if (isCorrect) {
             switch (questionArr[qNum - 1].difficulty) {
@@ -40,6 +47,8 @@ function Gameboard () {
         setNextOpacity(0)
 
         questionArr.length > qNum ? setQNum(qNum + 1) : checkForHighScore()
+
+        setIsAnswered(false)
     }
 
     const checkForHighScore = () => {
@@ -80,7 +89,9 @@ function Gameboard () {
         <div className="gameboard">
             {/*!gameOver ? {qDisplay} : (isHighScore ? <HighScore /> : {endDisplay})*/}
             <h2 className="question-num">Question {qNum}</h2>
-            <Question qData={questionArr[qNum - 1]} calcScore={calcScore} />
+            <DataContext.Provider value={ {calcScore, isAnswered} }>
+                <Question qData={questionArr[qNum - 1]} />
+            </DataContext.Provider>
             <span id="score">Score: {score}</span>
             <button id="next" onClick={nextQuestion}
                 style={{visibility: nextVis, opacity: nextOpacity}}>Next</button>

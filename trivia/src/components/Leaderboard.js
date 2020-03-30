@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Leaderboard(props) {
-    console.log('Leaderboard - props.gameView',props.gameView)
+    //console.log('Leaderboard - props.gameView',props.gameView)
     if (props.gameView) {
         return (
             <div className="leaderboard" id="in-game-leaderboard">
@@ -10,7 +10,9 @@ function Leaderboard(props) {
         )
     } else {
         return (
-            <h1>Leaderboard</h1>
+            <div className="leaderboard">
+                <h1>Leaderboard</h1>
+            </div>
         )
     }
 }

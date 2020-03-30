@@ -14,7 +14,6 @@ hr {
     margin: 10px 9px;
     padding: 10px 0;
     box-shadow: 10px 10px 5px #EFF0F1;
-    transition: 0.3s;
 }
 
 .answer:hover {

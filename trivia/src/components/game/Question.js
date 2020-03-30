@@ -18,7 +18,6 @@ function Question(props) {
                     key={i} 
                     answer={aData[1]}
                     isCorrect={aData[2]}
-                    calcScore={props.calcScore}
                 />
     })
 

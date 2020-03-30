@@ -86,14 +86,15 @@ Unless otherwise noted, time is listed in hours:
 | Basic Navbar & Footer | H | 1 | 45min | 45min |
 | Set up basic React routing | H | 1 | 30min | 30min |
 | Make trivia API call, parse important data | H | 2 | 1.5 | 1.5 |
-| Display questions and selectable answers, change on submit | H | 3 | 4 |  |
+| Display questions and selectable answers, change on submit | H | 3 | 4 | 4 |
 | Create logic to test for correct answer | H | 1 | 35min | 35min |
+| Allow only one answer to be selected per question | H | 1 | 1 | 1 |
 | Keep track of score | H | 2 | 2 | 2 |
 | Style game display - basic | H | 2 | 3 | 3 |
 | Make game display dynamic | H | 1 | 1 | 1 |
 | Create game options form | H | 3 | | |
 | Incorporate selected options into API call | H | 1 | | |
-| Add content for instructions page | H | 2 | | |
+| Add content for instructions page | H | 1 | | |
 | Make Navbar dynamic using ReactStrap | H | 1 | | |
 | Learn how to use Firebase | M | 4 | | |
 | Add submit your score form to end of game | M | 3 | | | 
@@ -102,7 +103,7 @@ Unless otherwise noted, time is listed in hours:
 | Create multiple leaderboards, based on selected difficulty | L | 3 | |
 | Additional styling for game (progress bar, etc.) | L | 4 | 1 | |
 | Additional styling for Navbar, Footer, other pages | L | 4 | 1 | |
-| Total | H | 45 | 16 | |
+| Total | H | 45 | 17 | |
 
 ## Additional Libraries
 ReactStrap - responsive navbar, progress bar for game
