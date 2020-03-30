@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Answer from './Answer'
 
-function Question (props) {
+function Question(props) {
     
     const answerArr = props.qData.incorrect_answers.map(answer => {
         //console.log('Question - incorrect_answers', answer)
@@ -14,27 +14,33 @@ function Question (props) {
 
     const allAnswers = answerArr.map((aData, i) => {
         //console.log('Question - aData', aData[1], aData[2])
-        return <Answer key={i} answer={aData[1]} isCorrect={aData[2]} />
+        return <Answer
+                    key={i} 
+                    answer={aData[1]}
+                    isCorrect={aData[2]}
+                    calcScore={props.calcScore}
+                />
     })
 
     return ( <>
-        <div className="info-wrapper">
-            <span className="question-info">
-                <h3>Category</h3>
-                {props.qData.category}
-            </span>
-            <span className="question-info">
-                <h3>Difficulty</h3>
-                {props.qData.difficulty}
-            </span>
-        </div>
-        <hr/>
-        <p className="question">{props.qData.question}</p>
+        <span id="category">
+            <h3>Category</h3>
+            {props.qData.category}
+        </span>
+        <span id="difficulty">
+            <h3>Difficulty</h3>
+            {props.qData.difficulty}
+        </span>
+        <p className="question"
+            dangerouslySetInnerHTML={{__html: props.qData.question}} />
         <ul className="answer-list">
             {allAnswers}
         </ul>
-        <button onClick={props.nextQuestion}>next</button>
     </> )
 }
 
-export default Question
+function areEqual(prevProps, nextProps) {
+    return prevProps.qData === nextProps.qData // only rerender on new question
+}
+
+export default memo(Question, areEqual)

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Instructions () {
+function Instructions() {
     return (
         <h1>Instructions</h1>
     )

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Question from './Question'
-import Score from './Score'
 import HighScore from './HighScore'
+import Leaderboard from '../Leaderboard'
 import './game.css'
 
 function Gameboard () {
@@ -11,6 +11,8 @@ function Gameboard () {
     const [gameOver, setGameOver] = useState(false)
     const [score, setScore] = useState(0)
     const [isHighScore, setIsHighScore] = useState(false)
+    const [nextVis, setNextVis] = useState('hidden')
+    const [nextOpacity, setNextOpacity] = useState(0)
 
     const calcScore = isCorrect => {
         let change = 0
@@ -26,7 +28,11 @@ function Gameboard () {
         } else {
             change -= 50
         }
+        console.log('Gameboard - calcScore - change', change)
         setScore(score + change)
+        
+        setNextVis('visible')
+        setNextOpacity(1)
     }
 
     const nextQuestion = () => {
@@ -70,9 +76,12 @@ function Gameboard () {
     return (
         <div className="gameboard">
             {/*!gameOver ? {qDisplay} : (isHighScore ? <HighScore /> : {endDisplay})*/}
-            <h2>Question {qNum}</h2>
-            <hr/>
-            <Question qData={questionArr[qNum - 1]} nextQuestion={nextQuestion} />
+            <h2 className="question-num">Question {qNum}</h2>
+            <Question qData={questionArr[qNum - 1]} calcScore={calcScore} />
+            <span id="score">Score: {score}</span>
+            <button id="next" onClick={nextQuestion}
+                style={{visibility: nextVis, opacity: nextOpacity}}>Next</button>
+            <Leaderboard gameView={true} />
         </div>
     )
 }
