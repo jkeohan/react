@@ -90,8 +90,9 @@ Unless otherwise noted, time is listed in hours:
 | Create logic to test for correct answer | H | 1 | 35min | 35min |
 | Keep track of score | H | 2 | 2 | 2 |
 | Style game display - basic | H | 2 | 3 | 3 |
+| Make game display dynamic | H | 1 | 1 | 1 |
 | Create game options form | H | 3 | | |
-| Incorporate selected options into API call | H | 2 | | |
+| Incorporate selected options into API call | H | 1 | | |
 | Add content for instructions page | H | 2 | | |
 | Make Navbar dynamic using ReactStrap | H | 1 | | |
 | Learn how to use Firebase | M | 4 | | |
@@ -101,7 +102,7 @@ Unless otherwise noted, time is listed in hours:
 | Create multiple leaderboards, based on selected difficulty | L | 3 | |
 | Additional styling for game (progress bar, etc.) | L | 4 | 1 | |
 | Additional styling for Navbar, Footer, other pages | L | 4 | 1 | |
-| Total | H | 45 | 15 | |
+| Total | H | 45 | 16 | |
 
 ## Additional Libraries
 ReactStrap - responsive navbar, progress bar for game

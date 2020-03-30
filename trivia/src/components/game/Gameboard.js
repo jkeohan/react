@@ -36,6 +36,9 @@ function Gameboard () {
     }
 
     const nextQuestion = () => {
+        setNextVis('hidden')
+        setNextOpacity(0)
+
         questionArr.length > qNum ? setQNum(qNum + 1) : checkForHighScore()
     }
 
