@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Question from './Question'
 import HighScore from './HighScore'
 import Leaderboard from '../Leaderboard'
-import './game.css'
+import './game.scss'
 
 export const DataContext = createContext()
 
@@ -90,13 +90,13 @@ function Gameboard(props) {
     return (
         <div className="gameboard">
             {/*!gameOver ? {qDisplay} : (isHighScore ? <HighScore /> : {endDisplay})*/}
-            <h2 className="question-num">Question {qNum}</h2>
+            <h2>Question {qNum}</h2>
             <DataContext.Provider value={ {calcScore, isAnswered} }>
                 <Question qData={questionArr[qNum - 1]} {...props} />
             </DataContext.Provider>
             <span id="score">Score: {score}</span>
-            <button id="next" onClick={nextQuestion}
-                style={{visibility: nextVis, opacity: nextOpacity}}>Next</button>
+            <button style={{visibility: nextVis, opacity: nextOpacity}}
+                onClick={nextQuestion}>Next</button>
             <Leaderboard gameView={true} />
         </div>
     )

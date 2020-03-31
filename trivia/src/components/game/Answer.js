@@ -31,7 +31,7 @@ function Answer(props) {
         }
     }
 
-    return <li className="answer" onClick={handleClick} style={{backgroundColor: bgColor}}
+    return <li onClick={handleClick} style={{backgroundColor: bgColor}}
                 dangerouslySetInnerHTML={{__html: `${props.answer} ${mark}`}} />
 }
 
