@@ -7,7 +7,7 @@ import './game.css'
 
 export const DataContext = createContext()
 
-function Gameboard() {
+function Gameboard(props) {
     const [questionArr, setQuestionArr] = useState(false)
     const [qNum, setQNum] = useState(1)
     const [isAnswered, setIsAnswered] = useState(false)
@@ -59,7 +59,9 @@ function Gameboard() {
     
     useEffect(() => {
         const makeApiCall = async () => {
-            const url = `https://opentdb.com/api.php?amount=10`
+            const catNum = props.catIndex ? parseInt(props.catIndex) + 9 : ''
+            const url = `https://opentdb.com/api.php?amount=10&category=${catNum}&difficulty=${props.difficulty}`
+            console.log('Gameboard - makeApiCall - url', url)
             const res = await fetch(url)
             const json = await res.json()
             console.log('Gameboard - makeApiCall - json.results', json.results)
@@ -90,7 +92,7 @@ function Gameboard() {
             {/*!gameOver ? {qDisplay} : (isHighScore ? <HighScore /> : {endDisplay})*/}
             <h2 className="question-num">Question {qNum}</h2>
             <DataContext.Provider value={ {calcScore, isAnswered} }>
-                <Question qData={questionArr[qNum - 1]} />
+                <Question qData={questionArr[qNum - 1]} {...props} />
             </DataContext.Provider>
             <span id="score">Score: {score}</span>
             <button id="next" onClick={nextQuestion}

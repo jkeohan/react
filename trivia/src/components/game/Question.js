@@ -23,12 +23,12 @@ function Question(props) {
 
     return ( <>
         <span id="category">
-            <h3>Category</h3>
-            {props.qData.category}
+            <h3>{`Category - ${props.catIndex ? props.categoryArr[props.catIndex]: 'Any'}`}</h3>
+            {props.catIndex === '' ? props.qData.category : ''}
         </span>
         <span id="difficulty">
-            <h3>Difficulty</h3>
-            {props.qData.difficulty}
+            <h3>{`Difficulty - ${props.difficulty ? props.difficulty: 'Any'}`}</h3>
+            {props.difficulty === '' ? props.qData.difficulty : ''}
         </span>
         <p className="question"
             dangerouslySetInnerHTML={{__html: props.qData.question}} />

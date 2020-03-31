@@ -5,7 +5,7 @@ function Header() {
   return (
     <nav>
       <Link to="/">
-        <span className="title">Trivia</span>
+        <span className="title">Answer 10</span>
       </Link>
       <Link to="/instructions">
         Instructions

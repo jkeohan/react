@@ -23,6 +23,7 @@ main {
     padding: 0 20px 20px;
     background-color: white;
     flex: 1 0 auto;
+    max-width: 1400px;
 }
 
 footer {
