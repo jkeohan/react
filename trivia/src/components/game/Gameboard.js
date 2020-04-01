@@ -46,13 +46,14 @@ function Gameboard(props) {
         setNextVis('hidden')
         setNextOpacity(0)
 
-        questionArr.length > qNum ? setQNum(qNum + 1) : checkForHighScore()
+        qNum < 10 ? setQNum(qNum + 1) : checkForHighScore()
 
         setIsAnswered(false)
     }
 
     const checkForHighScore = () => {
         setGameOver(true)
+        console.log('checking for high score')
         // make API call to leaderboard
         // check if score > lowest high score
     }
@@ -74,22 +75,8 @@ function Gameboard(props) {
         return <></>
     }
 
-    /*const qDisplay = ( <>
-            <h2>Question {qNum}</h2>
-            <Question qData={questionArr[qNum - 1]} nextQuestion={nextQuestion} />
-        </> )*/
-
-    const endDisplay = ( <>
-            <h2>Thanks for playing!</h2>
-            <h3>Check out the high scores:</h3>
-            <Link to="/leaderboard">
-                Leaderboard
-            </Link>
-        </> )
-    
-    return (
+    const qDisplay = (
         <div className="gameboard">
-            {/*!gameOver ? {qDisplay} : (isHighScore ? <HighScore /> : {endDisplay})*/}
             <h2>Question {qNum}</h2>
             <DataContext.Provider value={ {calcScore, isAnswered} }>
                 <Question qData={questionArr[qNum - 1]} {...props} />
@@ -100,6 +87,22 @@ function Gameboard(props) {
             <Leaderboard gameView={true} />
         </div>
     )
+
+    const endDisplay = (
+        <div className="game-over">
+            <h2>Final score:</h2>
+            <h1>{score}</h1>
+            <h3>Thanks for playing!</h3>
+            <Link to="/leaderboard">
+                Check the Leaderboard
+            </Link>
+            <Link to="/new">
+                <button>Start A New Game</button>
+            </Link>
+        </div>
+    )
+    
+    return !gameOver ? qDisplay : (isHighScore ? <HighScore score={score} /> : endDisplay)
 }
 
 export default Gameboard

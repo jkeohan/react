@@ -23,14 +23,13 @@ function Options(props) {
     })
 
     return ( <>
-        <h1>Options</h1>
-        <h2>Current options:</h2>
+        <h2>Current Game Options:</h2>
         <div>
             Category: {props.catIndexFromMain ? props.categoryArr[props.catIndexFromMain] : 'Any Category'}
             <br/>
             Difficulty: {props.difficultyFromMain ? props.difficultyFromMain : 'Any Difficulty'}
         </div>
-        <h2>Set options:</h2>
+        <h2>Set New Options:</h2>
         <span className="option-name">Select Category: </span>
         <select name="category" onChange={handleCategoryChange}>
             <option value="">Any Category</option>
