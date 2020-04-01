@@ -11,7 +11,7 @@ function Answer(props) {
     useEffect(() => {
         setBgColor('')
         setMark('')
-    }, [props])
+    }, [props.answer])
 
     useEffect(() => {
         if (game.isAnswered && props.isCorrect) {

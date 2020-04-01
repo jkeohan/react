@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function HighScore(props) {
     const [name, setName] = useState('')
@@ -24,7 +25,9 @@ function HighScore(props) {
                     onChange={handleChange}
                     value={name}
                 />
-                <button onClick={handleSubmit}>Submit</button>
+                <Link to="/leaderboard">
+                    <button onClick={handleSubmit}>Submit</button>
+                </Link>
             </form>
         </div>
     )

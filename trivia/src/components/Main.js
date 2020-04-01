@@ -5,7 +5,6 @@ import Instructions from './Instructions'
 import Options from './Options'
 import Leaderboard from './Leaderboard'
 import categoryArr from './categoryArr'
-import HighScore from './game/HighScore'
 
 const reducer = (state,action) => {
     switch(action.type) {
@@ -32,18 +31,17 @@ function Main() {
         if (storage) {
             setHighScores(JSON.parse(storage))
         }
+        console.log('Main - useEffect - highScores', highScores)
     }, [])
     
     const checkForHighScore = () => {
         console.log('checking for high score at Main')
 
         let scoreTest = false
-        if (highScores && highScores.length > 9) {
-            highScores.forEach((highScore) => {
-                if (score > highScore.score) {
-                    scoreTest = true;
-                } 
-            })
+        if (highScores.length > 9) {
+            if (score > highScores[highScores.length - 1].score) {
+                scoreTest = true;
+            }
         } else {
             scoreTest = true
         }
@@ -57,12 +55,13 @@ function Main() {
         if (highScores) {
             let index;
             highScores.forEach((highScore, i) => {
-                if (score > highScore.score) {
+                if (highScore.score >= score) {
                     index = i
-                } 
+                }
             })
             let newHighScores = [...highScores]
-            newHighScores.slice(index+1, 0, {'name' : name, 'score' : score})
+            newHighScores.splice(index + 1, 0, {'name' : name, 'score' : score})
+            setHighScores(newHighScores)
         }
         localStorage.setItem("leaderboard", JSON.stringify(highScores))
     }
