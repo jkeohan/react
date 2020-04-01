@@ -37,7 +37,7 @@ function Gameboard(props) {
         setNextVis('hidden')
         setNextOpacity(0)
 
-        qNum < 10 ? setQNum(qNum + 1) : gameOver()
+        qNum < 2 ? setQNum(qNum + 1) : gameOver()
 
         setIsAnswered(false)
     }
@@ -100,7 +100,7 @@ function Gameboard(props) {
     return ( 
         !isGameOver ?
             qDisplay :
-            props.isHighScore ?
+            props.checkForHighScore() ?
                 <HighScore score={props.score} submitScore={props.submitScore} /> :
                 endDisplay
     )

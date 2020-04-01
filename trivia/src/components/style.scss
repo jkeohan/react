@@ -59,6 +59,36 @@ footer {
     font-size: 2em;
 }
 
+.options {
+    height: 60vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    div {
+        width: 360px;
+    }
+
+    select {
+        float: right;
+        width: 200px;
+        margin: 0 20px;
+    }
+
+    button {
+        margin: 20px 8vw;
+        background-color: #3B6C47; /* Green */
+        color: white;
+        padding: 15px;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+    button:hover {
+        cursor: pointer;
+    }
+}
+
 #root {
     height: 100vh;
     display: flex;
@@ -67,7 +97,11 @@ footer {
 
 /* tablet */
 @media (min-width: 768px) {
-    
+    .options {
+        button {
+            margin: 0 20vw;
+        }
+    }
 }
 
 /* desktop */
