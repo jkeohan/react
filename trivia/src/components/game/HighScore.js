@@ -9,7 +9,7 @@ function HighScore(props) {
     
     const handleSubmit = e => {
         e.preventDefault();
-    //    props.submitHighScore(name, props.score)
+        props.submitScore(name)
     }
     
     return (

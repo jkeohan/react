@@ -11,33 +11,24 @@ function Gameboard(props) {
     const [questionArr, setQuestionArr] = useState(false)
     const [qNum, setQNum] = useState(1)
     const [isAnswered, setIsAnswered] = useState(false)
-    const [gameOver, setGameOver] = useState(false)
-    const [score, setScore] = useState(0)
-    const [isHighScore, setIsHighScore] = useState(false)
+    const [isGameOver, setIsGameOver] = useState(false)
     const [nextVis, setNextVis] = useState('hidden')
     const [nextOpacity, setNextOpacity] = useState(0)
-
-    console.log('Gameboard - isAnswered', isAnswered)
 
     const calcScore = isCorrect => {
         setIsAnswered(true)
 
-        let change = 0
         if (isCorrect) {
-            switch (questionArr[qNum - 1].difficulty) {
-                case 'hard': 
-                    change += 100
-                case 'medium':
-                    change += 100
-                default:
-                    change += 100
+            const diffs = {
+                'easy' : 1,
+                'medium' : 2,
+                'hard' : 3
             }
+            props.dispatch({type: "ADD", value: diffs[questionArr[qNum - 1].difficulty]})
         } else {
-            change -= 50
+            props.dispatch({type: "SUB"})
         }
-        console.log('Gameboard - calcScore - change', change)
-        setScore(score + change)
-        
+
         setNextVis('visible')
         setNextOpacity(1)
     }
@@ -46,16 +37,14 @@ function Gameboard(props) {
         setNextVis('hidden')
         setNextOpacity(0)
 
-        qNum < 10 ? setQNum(qNum + 1) : checkForHighScore()
+        qNum < 10 ? setQNum(qNum + 1) : gameOver()
 
         setIsAnswered(false)
     }
 
-    const checkForHighScore = () => {
-        setGameOver(true)
-        console.log('checking for high score')
-        // make API call to leaderboard
-        // check if score > lowest high score
+    const gameOver = () => {
+        setIsGameOver(true)
+        props.checkForHighScore()
     }
     
     useEffect(() => {
@@ -69,6 +58,7 @@ function Gameboard(props) {
             setQuestionArr(json.results)
         }
         makeApiCall()
+        props.dispatch({type: "RESET"})
     }, [])
     
     if (!questionArr) {
@@ -79,9 +69,14 @@ function Gameboard(props) {
         <div className="gameboard">
             <h2>Question {qNum}</h2>
             <DataContext.Provider value={ {calcScore, isAnswered} }>
-                <Question qData={questionArr[qNum - 1]} {...props} />
+                <Question
+                    qData={questionArr[qNum - 1]}
+                    catIndex={props.catIndex}
+                    difficulty={props.difficulty}
+                    categoryArr={props.categoryArr}
+                />
             </DataContext.Provider>
-            <span id="score">Score: {score}</span>
+            <span id="score">Score: {props.score}</span>
             <button style={{visibility: nextVis, opacity: nextOpacity}}
                 onClick={nextQuestion}>Next</button>
             <Leaderboard gameView={true} />
@@ -91,7 +86,7 @@ function Gameboard(props) {
     const endDisplay = (
         <div className="game-over">
             <h2>Final score:</h2>
-            <h1>{score}</h1>
+            <h1>{props.score}</h1>
             <h3>Thanks for playing!</h3>
             <Link to="/leaderboard">
                 Check the Leaderboard
@@ -102,7 +97,13 @@ function Gameboard(props) {
         </div>
     )
     
-    return !gameOver ? qDisplay : (isHighScore ? <HighScore score={score} /> : endDisplay)
+    return ( 
+        !isGameOver ?
+            qDisplay :
+            props.isHighScore ?
+                <HighScore score={props.score} submitScore={props.submitScore} /> :
+                endDisplay
+    )
 }
 
 export default Gameboard
