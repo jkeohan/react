@@ -1,3 +1,7 @@
+:root {
+    --main-height: calc(100vh - 146px);
+}
+
 body {
     margin: 0;
 }
@@ -19,14 +23,16 @@ nav {
 }
 
 main {
-    padding: 0 20px 20px;
-    background-color: white;
     flex: 1 0 auto;
-    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+
+    div {
+        width: 100vw;
+    }
 }
 
 footer {
-    flex-shrink: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -59,13 +65,61 @@ footer {
     font-size: 2em;
 }
 
-.options {
-    height: 60vh;
+.home {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: var(--main-height);
+    min-height: 400px;
+    background-color: black;
+    color: white;
+
+    h2 {
+        margin: 0px;
+        padding: 20px;
+    }
+
+    img{
+        width: 100vw;
+    }
+}
+
+.instructions {
+
+    img {
+        position: absolute;
+        height: var(--main-height);
+        min-height: 550px;
+        min-width: 100vw;
+        object-fit: cover;
+        right: 0;
+        z-index: -1;
+    }
+
+    div {
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -60%);
+        padding: 10vh 10vw 0;
+        width: 80vw;
+        text-align: justify;
+        text-align-last: center;
+    }
+}
+
+.options {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    
+    padding-bottom: 100px;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+
     div {
         width: 360px;
     }
@@ -76,6 +130,18 @@ footer {
         margin: 0 20px;
     }
 
+    img {
+        width: 100vw;
+    }
+}
+
+.options-wrapper {
+    height: var(--main-height);
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.instructions, .options {
     button {
         margin: 20px 8vw;
         background-color: #3B6C47; /* Green */
@@ -89,22 +155,101 @@ footer {
     }
 }
 
+.leaderboard {
+    padding: 0 10px;
+    width: 100vw;
+    text-align: center;
+
+    ul {
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        list-style: none;
+        padding-inline-start: 0;
+        margin-bottom: 100px;
+    }
+
+    li {
+        font-size: 24px;
+        padding: 10px;
+    }
+}
+
+.bold {
+    font-weight: 700;
+}
+
+#leaderboard-img {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    z-index: -1;
+}
+
 #root {
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+/* when footer unwraps */
+@media (min-width: 577px) {
+    :root {
+        --main-height: calc(100vh - 114px);
+    }
+}
+
 /* tablet */
 @media (min-width: 768px) {
+    .home {
+        img {
+            width: 768px;
+        }
+    }
+    
     .options {
         button {
             margin: 0 20vw;
+        }
+    }
+    
+    .instructions {
+        div {
+            width: 50vw;
+        }
+        img {
+            left: -10vh; 
+        }
+    }
+
+    #full-leaderboard {
+        h2 {
+            font-size: 2em;
+        }
+        
+        ul {
+            height: 250px;
         }
     }
 }
 
 /* desktop */
 @media (min-width: 1024px) {
-
+    .instructions {
+        img {
+            left: 0; 
+        }
+    }
+    #full-leaderboard {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        h2 {
+            font-size: 2.5em;
+            position: relative;
+            left: -150px;
+            top: -50px;
+        }
+    }
 }

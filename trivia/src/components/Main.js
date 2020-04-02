@@ -1,5 +1,6 @@
 import React, { useState, useReducer, useEffect } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
+import Home from './Home'
 import Gameboard from './game/Gameboard'
 import Instructions from './Instructions'
 import Options from './Options'
@@ -25,6 +26,7 @@ function Main() {
     const [difficulty, setDifficulty] = useState('')
     const [score, dispatch] = useReducer(reducer, 0)
     const [highScores, setHighScores] = useState([])
+    const [scoreIndex, setScoreIndex] = useState(-1)
 
     useEffect(() => {
         let storage = localStorage.getItem("leaderboard")
@@ -51,25 +53,32 @@ function Main() {
 
     const submitScore = name => {
         console.log('Main - submitScore - name', name)
+        const newHighScores = [...highScores]
+        let index = 0;
 
         if (highScores) {
-            let index;
             highScores.forEach((highScore, i) => {
                 if (highScore.score >= score) {
-                    index = i
+                    index = i + 1
                 }
             })
-            let newHighScores = [...highScores]
-            newHighScores.splice(index + 1, 0, {'name' : name, 'score' : score})
-            setHighScores(newHighScores)
+            newHighScores.splice(index, 0, {'name' : name, 'score' : score})
+            if (newHighScores.length > 10) {
+                newHighScores.pop()
+            }
+        } else {
+            newHighScores = [{'name' : name, 'score' : score}]
         }
-        localStorage.setItem("leaderboard", JSON.stringify(highScores))
+        setHighScores(newHighScores)
+        setScoreIndex(index)
+        localStorage.setItem("leaderboard", JSON.stringify(newHighScores))
     }
 
     return (
         <main>
         <Switch>
-            <Route exact path="/" render={() =>
+            <Route exact path="/" component={Home} />
+            <Route path="/game" render={() =>
                 <Gameboard 
                     catIndex={catIndex}
                     difficulty={difficulty}
@@ -78,6 +87,7 @@ function Main() {
                     dispatch={dispatch}
                     submitScore={submitScore}
                     checkForHighScore={checkForHighScore}
+                    highScores={highScores}
                 />
             } />
             <Route path="/instructions" component={Instructions} />
@@ -91,9 +101,9 @@ function Main() {
                 />
             } />
             <Route path="/leaderboard" render={() =>
-                <Leaderboard 
-                    score={score}
+                <Leaderboard
                     highScores={highScores}
+                    scoreIndex={scoreIndex}
                 />
             } />
             <Redirect to="/" />

@@ -79,7 +79,7 @@ function Gameboard(props) {
             <span id="score">Score: {props.score}</span>
             <button style={{visibility: nextVis, opacity: nextOpacity}}
                 onClick={nextQuestion}>Next</button>
-            <Leaderboard gameView={true} />
+            <Leaderboard gameView={true} highScores={props.highScores} />
         </div>
     )
 
@@ -91,7 +91,7 @@ function Gameboard(props) {
             <Link to="/leaderboard">
                 Check the Leaderboard
             </Link>
-            <Link to="/new">
+            <Link to="/">
                 <button>Start A New Game</button>
             </Link>
         </div>

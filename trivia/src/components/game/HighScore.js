@@ -8,8 +8,7 @@ function HighScore(props) {
         setName(e.target.value)
     }
     
-    const handleSubmit = e => {
-        e.preventDefault();
+    const handleSubmit = () => {
         props.submitScore(name)
     }
     
@@ -17,7 +16,7 @@ function HighScore(props) {
         <div className="high-score">
             <h2>You got a high score!</h2>
             <h1>{props.score}</h1>
-            <h3>Enter your name below:</h3>
+            <h3>Enter your trivia alias below:</h3>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"

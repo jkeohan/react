@@ -7,6 +7,9 @@ function Header() {
       <Link to="/">
         <span className="title">Answer10</span>
       </Link>
+      <Link to="/game">
+        Game
+      </Link>
       <Link to="/instructions">
         Instructions
       </Link>
