@@ -92,7 +92,7 @@ function Gameboard(props) {
                 Check the Leaderboard
             </Link>
             <Link to="/">
-                <button>Start A New Game</button>
+                <button className="button">Start A New Game</button>
             </Link>
         </div>
     )

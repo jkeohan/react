@@ -51,7 +51,7 @@ function Options(props) {
                     </div>
                 </div>
                 <Link to="/game">
-                    <button onClick={handleClick}>New Game With Selected Options</button>
+                    <button className="button" onClick={handleClick}>New Game With Selected Options</button>
                 </Link>
                 <img src="https://res.cloudinary.com/dnj7porin/image/upload/v1585805154/stage-1876094_1920_boogpm.png" />
             </div>

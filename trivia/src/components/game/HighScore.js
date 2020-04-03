@@ -30,7 +30,7 @@ function HighScore(props) {
                 (limit: 12 characters)
                 <br/>
                 <Link to="/leaderboard">
-                    <button onClick={handleSubmit}>Submit</button>
+                    <button className="button" onClick={handleSubmit}>Submit</button>
                 </Link>                
             </form>
         </div>

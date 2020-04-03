@@ -25,7 +25,7 @@ function Instructions() {
                     you climb the highest ranksof loyatly on the leaderboard!
                 </p>
                 <Link to="/game">
-                    <button>Start A New Game</button>
+                    <button className="button">Start A New Game</button>
                 </Link>
             </div>
             <img src="https://res.cloudinary.com/dnj7porin/image/upload/v1585807295/CurtainBG_jgalwt.png" />

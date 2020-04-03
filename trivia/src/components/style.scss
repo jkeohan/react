@@ -131,18 +131,16 @@ footer {
     overflow: hidden;
 }
 
-.instructions, .options {
-    button {
-        margin: 20px 8vw;
-        background-color: #3B6C47;
-        color: white;
-        padding: 15px;
-        font-size: 14px;
-        border-radius: 5px;
-    }
-    button:hover {
-        cursor: pointer;
-    }
+.button {
+    margin: 20px 8vw;
+    background-color: #3B6C47;
+    color: white;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.button:hover {
+    cursor: pointer;
 }
 
 .leaderboard {
