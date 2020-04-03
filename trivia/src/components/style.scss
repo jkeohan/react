@@ -73,7 +73,6 @@ footer {
 }
 
 .instructions {
-
     img {
         position: absolute;
         height: $main-height;
@@ -93,6 +92,10 @@ footer {
         width: 80vw;
         text-align: justify;
         text-align-last: center;
+    }
+
+    p {
+        font-size: 18px;
     }
 }
 
@@ -131,7 +134,7 @@ footer {
 .instructions, .options {
     button {
         margin: 20px 8vw;
-        background-color: #3B6C47; /* Green */
+        background-color: #3B6C47;
         color: white;
         padding: 15px;
         font-size: 14px;
@@ -199,12 +202,12 @@ footer {
         div {
             width: 50vw;
         }
-        img {
-            left: -10vh; 
-        }
     }
 
     #full-leaderboard {
+        padding-top: 5vh;
+        min-height: 500px;
+
         h2 {
             font-size: 2em;
         }
@@ -223,6 +226,8 @@ footer {
         }
     }
     #full-leaderboard {
+        min-height: 550px;
+        padding-top: 0;
         display: flex;
         align-items: center;
         justify-content: center;

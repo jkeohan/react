@@ -17,9 +17,11 @@ function Leaderboard(props) {
             if (i > 0) {
                 let mult = (i < 3 ? 2 : 1)
                 props.gameView ? fontSize -= 1 * mult : fontSize -= 3 * mult
-            }     
+            }
+            console.log(props.scoreIndex)
+            let color = (props.scoreIndex === i ? '#69c07e' : 'black')
             return (
-                <li style={{fontSize: `${fontSize}px`}} key={i}>
+                <li style={{fontSize: `${fontSize}px`, color: color}} key={i}>
                     <span className="bold">{`${i + 1}) `}</span>
                     {highScore.name} {dots} {highScore.score}
                 </li>

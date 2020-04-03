@@ -37,7 +37,7 @@ function Gameboard(props) {
         setNextVis('hidden')
         setNextOpacity(0)
 
-        qNum < 2 ? setQNum(qNum + 1) : gameOver()
+        qNum < 10 ? setQNum(qNum + 1) : gameOver()
 
         setIsAnswered(false)
     }

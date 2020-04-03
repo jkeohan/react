@@ -18,6 +18,7 @@ function Question(props) {
                     key={i} 
                     answer={aData[1]}
                     isCorrect={aData[2]}
+                    rand={Math.random()}
                 />
     })
 

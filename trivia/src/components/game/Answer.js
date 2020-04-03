@@ -3,15 +3,18 @@ import { DataContext } from './Gameboard'
 
 function Answer(props) {
 
-    const game = useContext(DataContext) // using context negated issue of props not updating
+    // using context negated issue of props not updating
+    const game = useContext(DataContext)
 
     const [bgColor, setBgColor] = useState('')
     const [mark, setMark] = useState('')
 
+    // this wasn't running on back-to-back true/false questions,
+    // so I added a random number to props to ensure a change
     useEffect(() => {
         setBgColor('')
         setMark('')
-    }, [props.answer])
+    }, [props.answer, props.rand])
 
     useEffect(() => {
         if (game.isAnswered && props.isCorrect) {
