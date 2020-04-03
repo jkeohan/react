@@ -1,6 +1,5 @@
-$main-height: calc(100vh - 128px);
-
-body {
+html, body, #root {
+    height: 100%;
     margin: 0;
 }
 
@@ -20,17 +19,19 @@ nav {
     }
 }
 
+header {
+    flex-shrink: 0;
+}
+
 main {
     flex: 1 0 auto;
-    margin: 0 auto;
-    position: relative;
-
     div {
-        width: 100vw;
+        padding: 0;
     }
 }
 
 footer {
+    flex-shrink: 0;
     padding: 0 10vw;
     display: flex;
     justify-content: space-between;
@@ -54,11 +55,11 @@ footer {
 }
 
 .home {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: $main-height;
     min-height: 70vw;
     background-color: black;
     color: white;
@@ -73,22 +74,22 @@ footer {
 }
 
 .instructions {
+    height: 100%;
+    min-height: 550px;
+
     img {
         position: absolute;
-        height: $main-height;
-        min-height: 550px;
-        min-width: 100vw;
+        height: 90%;
+        
+        width: 100vw;
         object-fit: cover;
         right: 0;
         z-index: -1;
     }
 
     div {
-        position: fixed;
-        top: 50%;
-        right: 0;
-        transform: translate(0, -60%);
-        padding: 10vh 10vw 0;
+        float: right;
+        margin: 0 10vw;
         width: 80vw;
         text-align: justify;
         text-align-last: center;
@@ -100,19 +101,13 @@ footer {
 }
 
 .options {
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-bottom: 100px;
+    height: 100%;
+    padding-top: 20px;
     background-color: black;
     color: white;
-    overflow: hidden;
-
-    div {
-        width: 360px;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
     select {
         float: right;
@@ -123,12 +118,6 @@ footer {
     img {
         width: 100vw;
     }
-}
-
-.options-wrapper {
-    height: $main-height;
-    min-height: 400px;
-    overflow: hidden;
 }
 
 .button {
@@ -144,8 +133,6 @@ footer {
 }
 
 .leaderboard {
-    padding: 0 10px;
-    width: 100vw;
     text-align: center;
 
     ul {
@@ -154,7 +141,6 @@ footer {
         align-content: center;
         list-style: none;
         padding-inline-start: 0;
-        margin-bottom: 100px;
     }
 
     li {
@@ -167,15 +153,23 @@ footer {
     font-weight: 700;
 }
 
+#full-leaderboard {
+    min-height: 620px;
+
+    ul {
+        margin-bottom: 100px;
+    }
+}
+
 #leaderboard-img {
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100vw;
     z-index: -1;
 }
 
 #root {
-    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -198,7 +192,7 @@ footer {
     
     .instructions {
         div {
-            width: 50vw;
+            width: 60vw;
         }
     }
 
@@ -220,7 +214,11 @@ footer {
 @media (min-width: 1024px) {
     .instructions {
         img {
-            left: 0; 
+            left: 0;
+        }
+
+        div {
+            width: 55vw;
         }
     }
     #full-leaderboard {

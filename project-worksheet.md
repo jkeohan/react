@@ -96,14 +96,14 @@ Unless otherwise noted, time is listed in hours:
 | Incorporate selected options into API call | H | 1 | 1.5 | 1.5 |
 | Add content for instructions page | H | 1 | 1 | 1 |
 | Make Navbar dynamic using ReactStrap | H | 1 | 1 | |
-| Learn how to use Firebase | M | 4 | 2 | |
+| Learn how to use Firebase | M | 4 | 2.5 | |
 | Add submit your score form to end of game | M | 3 | 2 | 2 |
 | Create leaderboard, populate locally | M | 3 | 3 | 3 |
 | Update and populate leaderboard using Firebase | M | 3 | | |
 | Create multiple leaderboards, based on selected difficulty | L | 3 | |
 | Additional styling for game (progress bar, etc.) | L | 4 | 5 | 5 |
-| Additional styling for Navbar, Footer, other pages | L | 4 | 4 |  |
-| Total | H | 45 | 37.5 | |
+| Additional styling for Navbar, Footer, other pages | L | 4 | 8 |  |
+| Total | H | 45 | 42 | |
 
 ## Additional Libraries
 ReactStrap - responsive navbar, progress bar for game
@@ -111,10 +111,30 @@ Firebase - updating and retrieving leaderboard
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  Code snippet should not be greater than 10 lines of code. 
+Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  Code snippet should not be greater than 10 lines of code.
+
+The below code is how the leaderboard is populated. The shorter the name, the more dots are added between the name and score. The font size is set progressively smaller for each entry.
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+let fontSize = props.gameView ? 24 : 42
+
+scoreList = props.highScores.map((highScore, i) => {
+	let dots = ' . . . '   
+	for (let j = highScore.name.length; j < 12; j += 2) {
+		dots += '. '
+	}
+	if (i > 0) {
+		let mult = (i < 3 ? 2 : 1)
+		props.gameView ? fontSize -= 1 * mult : fontSize -= 3 * mult
+	}
+```
+...
+```
+	return (
+		<li style={{fontSize: `${fontSize}px`, color: color}} key={i}>
+			<span className="bold">{`${i + 1}) `}</span>
+			{highScore.name} {dots} {highScore.score}
+		</li>
+	) 
+})
 ```

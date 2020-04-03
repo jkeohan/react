@@ -23,38 +23,36 @@ function Options(props) {
     })
 
     return (
-        <div className="options-wrapper">
-            <div className="options">
-                <div>
-                    <h2>Current Game Options:</h2>
-                    Category: {props.catIndexFromMain ? props.categoryArr[props.catIndexFromMain] : 'Any Category'}
-                    <br/>
-                    Difficulty: {props.difficultyFromMain ? props.difficultyFromMain : 'Any Difficulty'}
-                </div>
-                <div>
-                    <h2>Set New Options:</h2>
-                    <div>
-                        Select Category:
-                        <select name="category" onChange={handleCategoryChange}>
-                            <option value="">Any Category</option>
-                            {categoryOptions}
-                        </select>
-                    </div>
-                    <div>
-                        Select Difficulty:
-                        <select onChange={handleDifficultyChange}>
-                            <option value="">Any Difficulty</option>
-                            <option value="easy">Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
-                        </select>
-                    </div>
-                </div>
-                <Link to="/game">
-                    <button className="button" onClick={handleClick}>New Game With Selected Options</button>
-                </Link>
-                <img src="https://res.cloudinary.com/dnj7porin/image/upload/v1585805154/stage-1876094_1920_boogpm.png" />
+        <div className="options">
+            <div>
+                <h2>Current Game Options:</h2>
+                Category: {props.catIndexFromMain ? props.categoryArr[props.catIndexFromMain] : 'Any Category'}
+                <br/>
+                Difficulty: {props.difficultyFromMain ? props.difficultyFromMain : 'Any Difficulty'}
             </div>
+            <div>
+                <h2>Set New Options:</h2>
+                <div>
+                    Select Category:
+                    <select name="category" onChange={handleCategoryChange}>
+                        <option value="">Any Category</option>
+                        {categoryOptions}
+                    </select>
+                </div>
+                <div>
+                    Select Difficulty:
+                    <select onChange={handleDifficultyChange}>
+                        <option value="">Any Difficulty</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+            </div>
+            <Link to="/game">
+                <button className="button" onClick={handleClick}>New Game With Selected Options</button>
+            </Link>
+            <img src="https://res.cloudinary.com/dnj7porin/image/upload/v1585946550/stage-1876094_1920_b3u3hp.png" />
         </div>
     )
 }

@@ -1,3 +1,5 @@
+$light-border: 2px solid #dadbdd;
+
 h3 {
     margin: 0 0 5px;
 }
@@ -11,7 +13,7 @@ h3 {
     list-style: none;
     padding-inline-start: 0;
     padding-bottom: 20px;
-    border-bottom: 2px solid #dadbdd;
+    border-bottom: $light-border;
     margin: 0;
     
     li {
@@ -37,10 +39,10 @@ h3 {
 }
 
 .gameboard {
-    width: auto;
     display: grid;
     grid-template-columns: repeat(2, minmax(auto, 480px));
-    grid-template-rows: 1fr .9fr .7fr 5fr auto;
+    grid-template-rows: 1fr .9fr .7fr 5fr 1fr;
+    min-height: 550px;
     max-width: 1400px;
     text-align: center;
     padding: 0 20px;
@@ -86,7 +88,7 @@ h3 {
     grid-column: 1/3;
     grid-row: 3/4;
     font-size: 20px;
-    border-top: 2px solid #dadbdd;
+    border-top: $light-border;
     padding: 15px 0 0;
     margin: 0;
 }
@@ -124,11 +126,8 @@ h3 {
 }
 
 #in-game-leaderboard {
-    width: auto;
-    text-align: center;
-    padding-top: 20px;
+    position: fixed;
     visibility: hidden;
-    height: 0;
 
     li {
         font-size: 16px;
@@ -137,18 +136,26 @@ h3 {
 
 /* tablet */
 @media (min-width: 768px) {
-
+    .gameboard {
+        min-height: 400px;
+    }
 }
 
 /* desktop */
 @media (min-width: 1024px) {
     .gameboard {
-        grid-template-columns: repeat(2, minmax(auto, 480px)) auto;
+        grid-template-columns: repeat(2, minmax(auto, 450px)) auto;
+        min-height: 480px;
     }
     #in-game-leaderboard {
+        position: static;
+        visibility: visible;
         grid-column: 3/4;
         grid-row: 1/6;
-        height: auto;
-        visibility: visible;
+        text-align: center;
+        padding: 20px 0 0 20px;
+        border-left: $light-border;
+        border-bottom: $light-border;
+        height: 455px;
     }
 }
