@@ -3,11 +3,10 @@ import React from 'react'
 function Footer() {
     return (
         <footer>
-            <span id="company">
-                &copy; 2020 Lucky Green Design
+            <span>&copy; 2020 Lucky Green Design</span>
+            <a href="https://adgreenie.github.io/portfolio/abgreen_portfolio/index.html" target="_blank">
                 <img alt="logo" src="https://res.cloudinary.com/dnj7porin/image/upload/v1584143970/lucky_green_logo_rgywyb.png" />
-            </span>
-            <span id="quote">We are all experts in our own little niches. - Alex Trebek</span>
+            </a>
         </footer>
     )
 }
