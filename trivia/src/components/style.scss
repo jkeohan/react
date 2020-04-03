@@ -182,6 +182,8 @@ footer {
 /* tablet */
 @media (min-width: 768px) {
     .home {
+        min-height: 500px;
+
         img {
             width: 768px;
         }
