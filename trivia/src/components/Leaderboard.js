@@ -11,7 +11,7 @@ function Leaderboard(props) {
 
         scoreList = props.highScores.map((highScore, i) => {
             let dots = ' . . . '   
-            for (let j = highScore.name.length; j < 10; j += 2) {
+            for (let j = highScore.name.length; j < 12; j += 2) {
                 dots += '. '
             }
             if (i > 0) {

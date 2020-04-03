@@ -5,7 +5,9 @@ function HighScore(props) {
     const [name, setName] = useState('')
     
     const handleChange = e => {
-        setName(e.target.value)
+        if (e.target.value.length < 13) {
+            setName(e.target.value)
+        }
     }
     
     const handleSubmit = () => {
@@ -24,9 +26,12 @@ function HighScore(props) {
                     onChange={handleChange}
                     value={name}
                 />
+                <br/>
+                (limit: 12 characters)
+                <br/>
                 <Link to="/leaderboard">
                     <button onClick={handleSubmit}>Submit</button>
-                </Link>
+                </Link>                
             </form>
         </div>
     )
