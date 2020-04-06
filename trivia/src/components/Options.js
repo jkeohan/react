@@ -24,13 +24,13 @@ function Options(props) {
 
     return (
         <div className="options">
-            <div>
+            <div className="inner-options">
                 <h2>Current Game Options:</h2>
                 Category: {props.catIndexFromMain ? props.categoryArr[props.catIndexFromMain] : 'Any Category'}
                 <br/>
                 Difficulty: {props.difficultyFromMain ? props.difficultyFromMain : 'Any Difficulty'}
             </div>
-            <div>
+            <div className="inner-options">
                 <h2>Set New Options:</h2>
                 <div>
                     Select Category:

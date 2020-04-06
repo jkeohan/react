@@ -78,10 +78,11 @@ footer {
     min-height: 550px;
 
     img {
+        height: 100%;
         position: absolute;
         height: 90%;
-        
-        width: 100vw;
+        width: 130vw;
+        left: -30vw;
         object-fit: cover;
         right: 0;
         z-index: -1;
@@ -117,6 +118,11 @@ footer {
 
     img {
         width: 100vw;
+    }
+
+    .inner-options {
+        width: 350px;
+        padding: 0 10vw;
     }
 }
 
@@ -191,6 +197,11 @@ footer {
     }
     
     .instructions {
+        img {
+            width: 120vw;
+            left: -20vw;
+        }
+        
         div {
             width: 60vw;
         }
@@ -214,7 +225,8 @@ footer {
 @media (min-width: 1024px) {
     .instructions {
         img {
-            left: 0;
+            width: 110vw;
+            left: -10vw;
         }
 
         div {

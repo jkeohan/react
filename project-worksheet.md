@@ -95,15 +95,15 @@ Unless otherwise noted, time is listed in hours:
 | Create game options form | H | 3 | 3 | 3 |
 | Incorporate selected options into API call | H | 1 | 1.5 | 1.5 |
 | Add content for instructions page | H | 1 | 1 | 1 |
-| Make Navbar dynamic using ReactStrap | H | 1 | 1 | |
-| Learn how to use Firebase | M | 4 | 2.5 | |
+| Make Navbar dynamic using ReactStrap | H | 1 | 1 | INC |
+| Learn how to use Firebase | M | 4 | 3 | 3 |
 | Add submit your score form to end of game | M | 3 | 2 | 2 |
 | Create leaderboard, populate locally | M | 3 | 3 | 3 |
-| Update and populate leaderboard using Firebase | M | 3 | | |
-| Create multiple leaderboards, based on selected difficulty | L | 3 | |
+| Update and populate leaderboard using Firebase | M | 3 | .5 | INC |
+| Create multiple leaderboards, based on selected difficulty | L | 3 | 0 | INC |
 | Additional styling for game (progress bar, etc.) | L | 4 | 5 | 5 |
-| Additional styling for Navbar, Footer, other pages | L | 4 | 8 |  |
-| Total | H | 45 | 42 | |
+| Additional styling for Navbar, Footer, other pages | L | 4 | 9 | 9 |
+| Total | H | 45 | 44 | 44 |
 
 ## Additional Libraries
 ReactStrap - responsive navbar, progress bar for game
