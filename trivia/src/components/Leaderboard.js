@@ -32,22 +32,23 @@ function Leaderboard(props) {
     if (props.gameView) {
         return (
             <div className="leaderboard" id="in-game-leaderboard">
-                <h3>Leaderboard</h3>
+                <h2>Leaderboard</h2>
                 <ul>
                     {scoreList}
                 </ul>
             </div>
         )
     } else {
-        return ( <>
+        return (
             <div className="leaderboard" id="full-leaderboard">
-                <h2>Wall of Glory</h2>
+                <h1>Wall of Glory</h1>
+                <hr />
                 <ul>
                     {scoreList}
                 </ul>
+                <img src="https://res.cloudinary.com/dnj7porin/image/upload/v1585808926/crowdBG_ex9dzj.png" />
             </div>
-            <img id="leaderboard-img" src="https://res.cloudinary.com/dnj7porin/image/upload/v1585808926/crowdBG_ex9dzj.png" />
-        </> )
+        )
     }
 }
 

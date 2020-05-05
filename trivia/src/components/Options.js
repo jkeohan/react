@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from 'reactstrap'
 
 function Options(props) {
     const [catIndex, setCatIndex] = useState('')
@@ -26,21 +27,27 @@ function Options(props) {
         <div className="options">
             <div className="inner-options">
                 <h2>Current Game Options:</h2>
-                Category: {props.catIndexFromMain ? props.categoryArr[props.catIndexFromMain] : 'Any Category'}
+                Category:
+                <span className="curr-option">
+                    {props.catIndexFromMain ? props.categoryArr[props.catIndexFromMain] : 'Any Category'}
+                </span>
                 <br/>
-                Difficulty: {props.difficultyFromMain ? props.difficultyFromMain : 'Any Difficulty'}
+                Difficulty:
+                <span className="curr-option" id="curr-dif">
+                    {props.difficultyFromMain ? props.difficultyFromMain : 'Any Difficulty'}
+                </span>
             </div>
             <div className="inner-options">
                 <h2>Set New Options:</h2>
                 <div>
-                    Select Category:
+                    Category:
                     <select name="category" onChange={handleCategoryChange}>
                         <option value="">Any Category</option>
                         {categoryOptions}
                     </select>
                 </div>
                 <div>
-                    Select Difficulty:
+                    Difficulty:
                     <select onChange={handleDifficultyChange}>
                         <option value="">Any Difficulty</option>
                         <option value="easy">Easy</option>
@@ -50,7 +57,7 @@ function Options(props) {
                 </div>
             </div>
             <Link to="/game">
-                <button className="button" onClick={handleClick}>New Game With Selected Options</button>
+                <Button className="button" onClick={handleClick}>New Game With Selected Options</Button>
             </Link>
             <img src="https://res.cloudinary.com/dnj7porin/image/upload/v1585946550/stage-1876094_1920_b3u3hp.png" />
         </div>

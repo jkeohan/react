@@ -6,19 +6,23 @@ import Instructions from './Instructions'
 import Options from './Options'
 import Leaderboard from './Leaderboard'
 import categoryArr from './categoryArr'
+import firebase from 'firebase'
+import firebaseConfig from '../config.js'
 
 const reducer = (state,action) => {
     switch(action.type) {
-      case "ADD" :
-        return state += 100 * action.value
-      case "SUB" :
-        return state -= 50
-      case "RESET" :
-        return state = 0
-      default:
-       return state
+        case "ADD" :
+            return state += 100 * action.value
+        case "SUB" :
+            return state -= 50
+        case "RESET" :
+            return state = 0
+        default:
+            return state
     }
-  }
+}
+
+firebase.initializeApp(firebaseConfig)
 
 function Main() {
 
@@ -27,6 +31,24 @@ function Main() {
     const [score, dispatch] = useReducer(reducer, 0)
     const [highScores, setHighScores] = useState([])
     const [scoreIndex, setScoreIndex] = useState(-1)
+
+    const db = firebase.database()
+
+    // Import Admin SDK
+    // var admin = require("firebase-admin");
+
+    // Get a database reference to our posts
+    // var db = admin.database();
+    // var ref = db.ref("server/saving-data/fireblog/posts");
+
+    // Attach an asynchronous callback to read the data at our posts reference
+    // ref.on("value", function(snapshot) {
+    // console.log(snapshot.val())
+    // }, function (errorObject) {
+    //     console.log("The read failed: " + errorObject.code)
+    // })
+
+    // console.log(db.ref("/answer10-leaderboard/data"))
 
     useEffect(() => {
         let storage = localStorage.getItem("leaderboard")

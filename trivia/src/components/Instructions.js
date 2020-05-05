@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from 'reactstrap'
 
 function Instructions() {
     return (
         <div className="instructions">
             <div>
-                <h1>Instructions</h1>
                 <p>
                     Do you like trivia? You've come to the right place, nerd!
                     You will receive 10 questions, one at a time. Simply click 
@@ -25,7 +25,7 @@ function Instructions() {
                     you climb the highest ranksof loyatly on the leaderboard!
                 </p>
                 <Link to="/game">
-                    <button className="button">Start A New Game</button>
+                    <Button className="button">Start A New Game</Button>
                 </Link>
             </div>
             <img src="https://res.cloudinary.com/dnj7porin/image/upload/v1585807295/CurtainBG_jgalwt.png" />

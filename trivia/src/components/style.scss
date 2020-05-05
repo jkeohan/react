@@ -3,6 +3,10 @@ html, body, #root {
     margin: 0;
 }
 
+h2 {
+    font-size: 1.5em;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -16,6 +20,7 @@ nav {
     }
     a:hover {
         color: #69c07e;
+        text-decoration: none;
     }
 }
 
@@ -52,6 +57,8 @@ footer {
 
 .title {
     font-size: 2em;
+    padding: 0 10px;
+    margin-right: 10px;
 }
 
 .home {
@@ -76,6 +83,13 @@ footer {
 .instructions {
     height: 100%;
     min-height: 550px;
+
+    p {
+        margin-top: 20px;
+        padding: 20px;
+        background: rgba(255, 255, 255, .4);
+        border-radius: 20px;
+    }
 
     img {
         height: 100%;
@@ -103,45 +117,51 @@ footer {
 
 .options {
     height: 100%;
-    padding-top: 20px;
+    min-height: 450px;
+    padding: 20px 10px 0;
     background-color: black;
     color: white;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 
     select {
         float: right;
-        width: 200px;
-        margin: 0 20px;
+        width: 260px;
     }
 
     img {
         width: 100vw;
     }
 
+    .curr-option {
+        margin-left: 20px;
+        color: #69c07e;
+    }
+
     .inner-options {
         width: 350px;
-        padding: 0 10vw;
+    }
+
+    #curr-dif {
+        padding-left: 2px;
     }
 }
 
 .button {
-    margin: 20px 8vw;
-    background-color: #3B6C47;
-    color: white;
-    padding: 15px;
-    font-size: 14px;
-    border-radius: 5px;
+    background-color: #529663;
+    border: none;
 }
 .button:hover {
-    cursor: pointer;
+    background-color: #3B6C47;
 }
 
 .leaderboard {
     text-align: center;
 
     ul {
+        margin: 0;
         display: flex;
         flex-flow: column wrap;
         align-content: center;
@@ -153,26 +173,23 @@ footer {
         font-size: 24px;
         padding: 10px;
     }
+
+    img {
+        width: 100vw;
+    }
 }
 
 .bold {
     font-weight: 700;
 }
 
-#full-leaderboard {
-    min-height: 620px;
-
-    ul {
-        margin-bottom: 100px;
-    }
+#toggler {
+    background: white;
 }
 
-#leaderboard-img {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    z-index: -1;
+#full-leaderboard {
+    padding-top: 20px;
+    min-height: 620px;
 }
 
 #root {
@@ -201,20 +218,12 @@ footer {
             width: 120vw;
             left: -20vw;
         }
-        
-        div {
-            width: 60vw;
-        }
     }
 
     #full-leaderboard {
         padding-top: 5vh;
         min-height: 500px;
 
-        h2 {
-            font-size: 2em;
-        }
-        
         ul {
             height: 250px;
         }
@@ -233,18 +242,10 @@ footer {
             width: 55vw;
         }
     }
-    #full-leaderboard {
-        min-height: 550px;
-        padding-top: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        h2 {
-            font-size: 2.5em;
-            position: relative;
-            left: -150px;
-            top: -50px;
-        }
+
+    .options {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
     }
 }
