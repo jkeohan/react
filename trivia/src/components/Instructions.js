@@ -22,13 +22,12 @@ function Instructions() {
                     challenge, or just want to play it safe, the Options page
                     allows you to specify the category and/or difficulty for all
                     questions. Good luck on your quest, mighty warrior, and may
-                    you climb the highest ranksof loyatly on the leaderboard!
+                    you climb the highest ranks of loyatly on the leaderboard!
                 </p>
                 <Link to="/game">
                     <Button className="button">Start A New Game</Button>
                 </Link>
             </div>
-            <img src="https://res.cloudinary.com/dnj7porin/image/upload/v1585807295/CurtainBG_jgalwt.png" />
         </div>
     )
 }

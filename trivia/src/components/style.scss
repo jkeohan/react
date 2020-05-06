@@ -62,7 +62,7 @@ footer {
 }
 
 .home {
-    height: 100%;
+    height: calc(100vh - 119px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,37 +82,13 @@ footer {
 
 .instructions {
     height: 100%;
-    min-height: 550px;
-
-    p {
-        margin-top: 20px;
-        padding: 20px;
-        background: rgba(255, 255, 255, .4);
-        border-radius: 20px;
-    }
-
-    img {
-        height: 100%;
-        position: absolute;
-        height: 90%;
-        width: 130vw;
-        left: -30vw;
-        object-fit: cover;
-        right: 0;
-        z-index: -1;
-    }
-
-    div {
-        float: right;
-        margin: 0 10vw;
-        width: 80vw;
-        text-align: justify;
-        text-align-last: center;
-    }
-
-    p {
-        font-size: 18px;
-    }
+    width: 100vw;
+    color: white;
+    background-image: url("https://res.cloudinary.com/dnj7porin/image/upload/v1588722418/question-mark-2492009_cm6ena.jpg");
+    margin: 0 auto;
+    text-align: justify;
+    text-align-last: center;
+    padding: calc(10vh - 20px) 5vw;
 }
 
 .options {
@@ -158,6 +134,10 @@ footer {
 }
 
 .leaderboard {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: center;
 
     ul {
@@ -177,10 +157,6 @@ footer {
     img {
         width: 100vw;
     }
-}
-
-.bold {
-    font-weight: 700;
 }
 
 #toggler {
@@ -214,10 +190,7 @@ footer {
     }
     
     .instructions {
-        img {
-            width: 120vw;
-            left: -20vw;
-        }
+        padding: calc(10vh - 20px) 15vw;
     }
 
     #full-leaderboard {
@@ -233,14 +206,7 @@ footer {
 /* desktop */
 @media (min-width: 1024px) {
     .instructions {
-        img {
-            width: 110vw;
-            left: -10vw;
-        }
-
-        div {
-            width: 55vw;
-        }
+        padding: calc(10vh - 20px) 25vw;
     }
 
     .options {

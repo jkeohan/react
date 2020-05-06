@@ -10,7 +10,7 @@ function Leaderboard(props) {
         let fontSize = props.gameView ? 24 : 42
 
         scoreList = props.highScores.map((highScore, i) => {
-            let dots = ' . . . '   
+            let dots = ' . . '   
             for (let j = highScore.name.length; j < 12; j += 2) {
                 dots += '. '
             }
@@ -22,8 +22,7 @@ function Leaderboard(props) {
             let color = (props.scoreIndex === i ? '#69c07e' : 'black')
             return (
                 <li style={{fontSize: `${fontSize}px`, color: color}} key={i}>
-                    <span className="bold">{`${i + 1}) `}</span>
-                    {highScore.name} {dots} {highScore.score}
+                    {i + 1}) {highScore.name} {dots} {highScore.score}
                 </li>
             ) 
         })
@@ -41,8 +40,10 @@ function Leaderboard(props) {
     } else {
         return (
             <div className="leaderboard" id="full-leaderboard">
-                <h1>Wall of Glory</h1>
-                <hr />
+                <div>
+                    <h1>Wall of Glory</h1>
+                    <hr />
+                </div>
                 <ul>
                     {scoreList}
                 </ul>
