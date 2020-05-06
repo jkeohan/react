@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import {
-  Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem
-} from 'reactstrap'
+import { Collapse, Navbar, NavbarToggler, Nav } from 'reactstrap'
+import { withRouter } from 'react-router'
 
-const Header = () => {
+function Header(props) {
   const [isOpen, setIsOpen] = useState(false)
+  const [active, setActive] = useState("")
 
   const toggle = () => setIsOpen(!isOpen)
+
+  console.log('PROPS', props)
+
+  const handleActive = (path) => {
+    return path === props.location.pathname ? "active" : ""
+  }
 
   return (
     <header>
@@ -18,10 +24,10 @@ const Header = () => {
         <NavbarToggler id="toggler" onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="nav-list" navbar>
-            <Link to="/game">Game</Link>
-            <Link to="/instructions">Instructions</Link>
-            <Link to="/options">Options</Link>
-            <Link to="/leaderboard">Leaderboard</Link>
+            <Link className={handleActive('/game')} to="/game">Game</Link>
+            <Link className={handleActive('/instructions')} to="/instructions">Instructions</Link>
+            <Link className={handleActive('/options')} to="/options">Options</Link>
+            <Link className={handleActive('/leaderboard')} to="/leaderboard">Leaderboard</Link>
           </Nav>
         </Collapse>
       </Navbar>
@@ -29,4 +35,4 @@ const Header = () => {
   );
 }
 
-export default Header
+export default withRouter(Header)
