@@ -1,6 +1,7 @@
 $light-border: 2px solid #dadbdd;
 
 h3 {
+    font-size: 1.2em;
     margin: 0 0 5px;
 }
 
@@ -14,7 +15,7 @@ h3 {
     padding-inline-start: 0;
     padding-bottom: 20px;
     border-bottom: $light-border;
-    margin: 0;
+    margin: 0 1px;
     
     li {
         display: flex;
@@ -26,7 +27,7 @@ h3 {
         border: 5px solid #dadbdd;
         border-radius: 15px;
         margin: 10px;
-        padding: 10px 0;
+        padding: 10px 5px;
         box-shadow: 10px 10px 5px #dadbdd;
     }
 
@@ -50,6 +51,7 @@ h3 {
     h2 {
         grid-column: 1/3;
         grid-row: 1/2;
+        margin: auto;
     }
 
     button {
@@ -81,9 +83,21 @@ h3 {
 }
 
 .high-score {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    button {
-        padding-bottom: 35px;
+
+    input {
+        font-size: 1.2em;
+        border-radius: 5px;
+        margin: 6px 5px;
+    }
+
+    .button {
+        margin-top: -6px;
     }
 }
 
@@ -94,19 +108,6 @@ h3 {
     border-top: $light-border;
     padding: 15px 0 0;
     margin: 0;
-}
-
-.high-score {
-    input {
-        font-size: 1.4em;
-        border-radius: 5px;
-    }
-    button {
-        font-size: 1.1em;
-        height: 30px;
-        width: 100px;
-        border-radius: 5px;
-    }
 }
 
 #category {
@@ -129,8 +130,7 @@ h3 {
 }
 
 #in-game-leaderboard {
-    position: fixed;
-    visibility: hidden;
+    display: none;
 
     li {
         font-size: 16px;
@@ -151,14 +151,22 @@ h3 {
         min-height: 480px;
     }
     #in-game-leaderboard {
+        display: initial;
         position: static;
-        visibility: visible;
         grid-column: 3/4;
         grid-row: 1/6;
         text-align: center;
         padding: 20px 0 0 20px;
         border-left: $light-border;
         border-bottom: $light-border;
-        height: 455px;
+        height: 526px;
+
+        h2 {
+            margin: 0 0 10px;
+        }
+
+        hr {
+            margin: 0;
+        }
     }
 }

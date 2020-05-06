@@ -1,5 +1,6 @@
 import React, { useEffect, useState, createContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from 'reactstrap'
 import Question from './Question'
 import HighScore from './HighScore'
 import Leaderboard from '../Leaderboard'
@@ -92,7 +93,7 @@ function Gameboard(props) {
                 Check the Leaderboard
             </Link>
             <Link to="/">
-                <button className="button">Start A New Game</button>
+                <Button className="button">Start A New Game</Button>
             </Link>
         </div>
     )

@@ -32,6 +32,7 @@ function Leaderboard(props) {
         return (
             <div className="leaderboard" id="in-game-leaderboard">
                 <h2>Leaderboard</h2>
+                <hr />
                 <ul>
                     {scoreList}
                 </ul>

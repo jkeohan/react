@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from 'reactstrap'
 
 function HighScore(props) {
     const [name, setName] = useState('')
@@ -26,12 +27,14 @@ function HighScore(props) {
                     onChange={handleChange}
                     value={name}
                 />
+                <Link to="/leaderboard">
+                    <Button
+                        className="button"
+                        style={name ? {display: "inline"} : {display: "none"}}
+                        onClick={handleSubmit}>Submit</Button>
+                </Link>
                 <br/>
                 (limit: 12 characters)
-                <br/>
-                <Link to="/leaderboard">
-                    <button className="button" onClick={handleSubmit}>Submit</button>
-                </Link>                
             </form>
         </div>
     )
