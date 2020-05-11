@@ -6,8 +6,7 @@ import Instructions from './Instructions'
 import Options from './Options'
 import Leaderboard from './Leaderboard'
 import categoryArr from './categoryArr'
-import firebase from 'firebase'
-import firebaseConfig from '../config.js'
+import { getLeaderboard, updateLeaderboard } from '../services/api-helper'
 
 const reducer = (state,action) => {
     switch(action.type) {
@@ -22,8 +21,6 @@ const reducer = (state,action) => {
     }
 }
 
-firebase.initializeApp(firebaseConfig)
-
 function Main() {
 
     const [catIndex, setCatIndex] = useState('')
@@ -32,37 +29,19 @@ function Main() {
     const [highScores, setHighScores] = useState([])
     const [scoreIndex, setScoreIndex] = useState(-1)
 
-    const db = firebase.database()
-
-    // Import Admin SDK
-    // var admin = require("firebase-admin");
-
-    // Get a database reference to our posts
-    // var db = admin.database();
-    // var ref = db.ref("server/saving-data/fireblog/posts");
-
-    // Attach an asynchronous callback to read the data at our posts reference
-    // ref.on("value", function(snapshot) {
-    // console.log(snapshot.val())
-    // }, function (errorObject) {
-    //     console.log("The read failed: " + errorObject.code)
-    // })
-
-    // console.log(db.ref("/answer10-leaderboard/data"))
-
     useEffect(() => {
-        let storage = localStorage.getItem("leaderboard")
-        if (storage) {
-            setHighScores(JSON.parse(storage))
+        const makeAPICall = async () => {
+            const resp = await getLeaderboard()
+            setHighScores(resp.body)
         }
-        console.log('Main - useEffect - highScores', highScores)
+        makeAPICall()
     }, [])
     
     const checkForHighScore = () => {
         console.log('checking for high score at Main')
 
         let scoreTest = false
-        if (highScores.length > 9) {
+        if (highScores && highScores.length > 9) {
             if (score > highScores[highScores.length - 1].score) {
                 scoreTest = true;
             }
@@ -75,25 +54,38 @@ function Main() {
 
     const submitScore = name => {
         console.log('Main - submitScore - name', name)
-        const newHighScores = [...highScores]
-        let index = 0;
+        const newHighScores = []
+        let index = 0
+        const cat = catIndex ? categoryArr[catIndex] : 'Any'
+        const diff = difficulty ? difficulty : 'Any' 
 
         if (highScores) {
             highScores.forEach((highScore, i) => {
                 if (highScore.score >= score) {
                     index = i + 1
                 }
+                newHighScores.push(highScore)
             })
-            newHighScores.splice(index, 0, {'name' : name, 'score' : score})
+            newHighScores.splice(index, 0, {
+                    'name': name,
+                    'score': score,
+                    'category': cat,
+                    'difficulty': diff
+                })
             if (newHighScores.length > 10) {
                 newHighScores.pop()
             }
         } else {
-            newHighScores = [{'name' : name, 'score' : score}]
+            newHighScores.push({
+                'name': name,
+                'score': score,
+                'category': cat,
+                'difficulty': diff
+            })
         }
         setHighScores(newHighScores)
         setScoreIndex(index)
-        localStorage.setItem("leaderboard", JSON.stringify(newHighScores))
+        updateLeaderboard({leaderboard: newHighScores})
     }
 
     return (

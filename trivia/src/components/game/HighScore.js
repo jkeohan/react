@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router'
 import { Button } from 'reactstrap'
 
 function HighScore(props) {
     const [name, setName] = useState('')
+    const [isSubmitted, setIsSubmitted] = useState(false)
     
     const handleChange = e => {
         if (e.target.value.length < 13) {
@@ -11,8 +12,13 @@ function HighScore(props) {
         }
     }
     
-    const handleSubmit = () => {
+    const handleSubmit = e => {
         props.submitScore(name)
+        setIsSubmitted(true)
+    }
+    
+    if (isSubmitted) {
+        return <Redirect push to="/leaderboard" />
     }
     
     return (
@@ -27,12 +33,10 @@ function HighScore(props) {
                     onChange={handleChange}
                     value={name}
                 />
-                <Link to="/leaderboard">
-                    <Button
-                        className="button"
-                        style={name ? {display: "inline"} : {display: "none"}}
-                        onClick={handleSubmit}>Submit</Button>
-                </Link>
+                <Button
+                    className="button"
+                    style={name ? {display: "inline"} : {display: "none"}}
+                    onClick={handleSubmit}>Submit</Button>
                 <br/>
                 (limit: 12 characters)
             </form>
