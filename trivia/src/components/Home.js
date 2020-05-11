@@ -8,7 +8,7 @@ function Home() {
             <Link to="/game">
                 <img src="https://www.ignitesocialmedia.com/wp-content/uploads/2018/02/YpJilaXXT8qJR6HQVKFM_ISM_Trivia.gif" />
             </Link>
-            <p>We are all experts in our own little niches. - Alex Trebek</p>
+            <p>“We are all experts in our own little niches.” - Alex Trebek</p>
         </div>
     )
 }

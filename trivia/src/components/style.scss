@@ -77,8 +77,9 @@ footer {
     justify-content: center;
     align-items: center;
     min-height: 70vw;
-    background-color: black;
+    background-color: #000000;
     color: white;
+    padding-bottom: 50px;
 
     h2 {
         margin: 0 0 20px;
@@ -86,6 +87,11 @@ footer {
 
     img{
         width: 100vw;
+    }
+
+    p {
+        margin-top: 10px;
+        font-size: .9em;
     }
 }
 
@@ -186,9 +192,14 @@ footer {
 @media (min-width: 768px) {
     .home {
         min-height: 500px;
+        padding-bottom: 0;
 
         img {
             width: 768px;
+        }
+
+        p {
+            font-size: 1em;
         }
     }
     
