@@ -6,7 +6,7 @@ const api = axios.create({
 
 export const getLeaderboard = async () => {
   const resp = await api.get();
-  return resp.data;
+  return resp.data[0];
 };
 
 export const updateLeaderboard = async (leaderboard) => {
