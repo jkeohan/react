@@ -32,7 +32,7 @@ function Main() {
     useEffect(() => {
         const makeAPICall = async () => {
             const resp = await getLeaderboard()
-            setHighScores(resp.body.leaderboard)
+            setHighScores(resp.leaderboard)
         }
         makeAPICall()
     }, [])
