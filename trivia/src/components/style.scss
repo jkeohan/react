@@ -182,7 +182,6 @@ footer {
 
 #full-leaderboard {
     padding-top: 20px;
-    min-height: 620px;
 }
 
 #root {
@@ -217,10 +216,9 @@ footer {
 
     #full-leaderboard {
         padding-top: 5vh;
-        min-height: 500px;
 
         ul {
-            height: 250px;
+            height: 300px;
         }
     }
 }
@@ -238,6 +236,12 @@ footer {
 
         button {
             margin: 0 30vw;
+        }
+    }
+
+    #full-leaderboard {
+        ul {
+            height: 250px;
         }
     }
 }

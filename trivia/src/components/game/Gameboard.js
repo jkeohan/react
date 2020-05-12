@@ -92,9 +92,9 @@ function Gameboard(props) {
             <Link to="/leaderboard">
                 Check the Leaderboard
             </Link>
-            <Link to="/">
-                <Button className="button">Start A New Game</Button>
-            </Link>
+            <Button className="button" onClick={() => window.location.reload()}>
+                Start A New Game
+            </Button>
         </div>
     )
     

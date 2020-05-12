@@ -5,6 +5,7 @@ import { Button } from 'reactstrap'
 function HighScore(props) {
     const [name, setName] = useState('')
     const [isSubmitted, setIsSubmitted] = useState(false)
+    const [limitColor, setLimitColor] = useState('black')
     
     const handleChange = e => {
         if (e.target.value.length < 13) {
@@ -13,8 +14,13 @@ function HighScore(props) {
     }
     
     const handleSubmit = e => {
-        props.submitScore(name)
-        setIsSubmitted(true)
+        if (name.length < 3) {
+            e.preventDefault()
+            setLimitColor('red')
+        } else {
+            props.submitScore(name)
+            setIsSubmitted(true)
+        }    
     }
     
     if (isSubmitted) {
@@ -38,7 +44,9 @@ function HighScore(props) {
                     style={name ? {display: "inline"} : {display: "none"}}
                     onClick={handleSubmit}>Submit</Button>
                 <br/>
-                (limit: 12 characters)
+                <span style={{color: limitColor}}>
+                    (limit: 3–12 characters)
+                </span>
             </form>
         </div>
     )
